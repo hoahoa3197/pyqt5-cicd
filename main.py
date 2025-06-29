@@ -7,9 +7,12 @@ from loguru import logger
 if getattr(sys, "frozen", False) or hasattr(sys, "_MEIPASS") or "__compiled__" in globals():
     os.chdir(os.path.dirname(sys.executable))
     logger.info(f"Running from executable: {os.getcwd()}")
+    print(f"Running from executable: {os.getcwd()}")
 else:
     os.chdir(os.path.dirname(os.path.abspath(__file__)))
     logger.info(f"Running from source code: {os.getcwd()}")
+    print(f"Running from executable: {os.getcwd()}")
+
 
 curdir = os.getcwd()
 
