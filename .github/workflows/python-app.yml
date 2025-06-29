@@ -50,16 +50,10 @@ jobs:
         pip install PyQt5 nuitka
         if (Test-Path requirements.txt) { pip install -r requirements.txt }
     - name: Build with Nuitka
-      run: |
-        python -m nuitka main.py ^
-          --standalone ^
-          --onefile ^
-          --mingw64 ^
-          --enable-plugin=pyqt5 ^
-          --output-dir=build ^
-          --accept-downloads
+      run: python -m nuitka main.py --standalone --onefile --mingw64 --enable-plugin=pyqt5 --output-dir=build --accept-downloads
     - name: Upload artifact
       uses: actions/upload-artifact@v4
       with:
         name: pyqt5-app
         path: build/main.exe
+
